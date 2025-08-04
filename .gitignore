@@ -1,0 +1,18 @@
+.vs/
+**/bin/
+**/obj/
+
+# Logs
+logs
+*.log
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# OS specific
+.DS_Store
+/.containers/database

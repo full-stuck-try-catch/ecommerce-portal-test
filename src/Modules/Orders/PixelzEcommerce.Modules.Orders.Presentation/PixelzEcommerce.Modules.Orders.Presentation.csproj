@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\PixelzEcommerce.Shared.Presentation\PixelzEcommerce.Shared.Presentation.csproj" />
+    <ProjectReference Include="..\..\Products\PixelzEcommerce.Modules.Products.IntegrationEvents\PixelzEcommerce.Modules.Products.IntegrationEvents.csproj" />
+    <ProjectReference Include="..\PixelzEcommerce.Modules.Orders.Application\PixelzEcommerce.Modules.Orders.Application.csproj" />
+    <ProjectReference Include="..\PixelzEcommerce.Modules.Orders.IntegrationEvents\PixelzEcommerce.Modules.Orders.IntegrationEvents.csproj" />
+  </ItemGroup>
+
+</Project>

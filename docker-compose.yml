@@ -1,0 +1,6 @@
+services:
+  pixelzecommerce.api:
+    image: ${DOCKER_REGISTRY-}pixelzecommerceapi
+    build:
+      context: .
+      dockerfile: src/API/PixelzEcommerce.Api/Dockerfile

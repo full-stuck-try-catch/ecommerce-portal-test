@@ -23,8 +23,7 @@ public sealed class ProductOrderedIntegrationConsumer(ISender sender) : IConsume
 
         if (result.IsFailure)
         {
-            throw   new EcommerceException(
-                $"Failed to process ProductOrderedIntegrationEvent for ProductId: {context.Message.ProductId}. Error: {result.Error}");
+            throw new EcommerceException(nameof(ProductOrderedCommand), result.Error);
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using PixelzEcommerce.Shared.Application.Messaging;
 using PixelzEcommerce.Shared.Domain;
 
@@ -13,12 +7,8 @@ public class ProductOrderedHandler(ILogger<ProductOrderedHandler> logger) : ICom
 {
     public async Task<Result> Handle(ProductOrderedCommand request, CancellationToken cancellationToken)
     {
-        await Task.Delay(1000, cancellationToken);
-
-        logger.LogInformation(
-               "Product Ordered Success: {ProductId}}",
-               request.ProductId);
-
+        await Task.Delay(1000, cancellationToken); // Simulate some processing delay
+        logger.LogInformation("Handling ProductOrderedCommand for ProductId: {ProductId}", request.ProductId);
         return Result.Success();
     }
 }

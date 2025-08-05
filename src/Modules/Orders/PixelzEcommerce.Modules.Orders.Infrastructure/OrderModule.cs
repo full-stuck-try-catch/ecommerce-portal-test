@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using PixelzEcommerce.Modules.Products.Presentation.Products;
 using PixelzEcommerce.Shared.Presentation.Endpoints;
 using MassTransit;
+using PixelzEcommerce.Modules.Orders.Domain.Orders;
+using PixelzEcommerce.Modules.Orders.Infrastructure.Repositories;
 
 namespace PixelzEcommerce.Modules.Orders.Infrastructure;
 public static class OrderModule
@@ -38,5 +40,7 @@ public static class OrderModule
                 .UseSnakeCaseNamingConvention());
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<OrderDbContext>());
+        services.AddScoped<IOrderRepository, OrderRepository>();
+
     }
 }

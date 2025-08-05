@@ -8,12 +8,10 @@ using PixelzEcommerce.Shared.Domain;
 namespace PixelzEcommerce.Modules.Orders.Domain.Orders;
 public static class OrderErrors
 {
-    public static readonly Error OrderNotCheckedOut = Error.Problem(
-        "Orders.MustCheckedOut",
-        "Order must be checked out to mark as paid.");
-
-    public static readonly Error OrderWasCheckout = Error.Conflict(
-        "Orders.OrderWasCheckout",
+    public static readonly Error OrderAlreadyCheckedOut = Error.Conflict(
+        "Orders.OrderAlreadyCheckedOut",
         "Order was already checked out and cannot be checked out again."
         );
+
+    public static readonly Error OrderNotFound = Error.NotFound("Order.NotFound", "Order was not found");
 }

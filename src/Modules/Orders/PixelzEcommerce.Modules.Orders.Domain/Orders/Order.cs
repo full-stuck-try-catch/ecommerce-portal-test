@@ -31,7 +31,7 @@ public sealed class Order : Entity
     {
         if (Status != OrderStatus.Created)
         {
-            return Result.Failure(OrderErrors.OrderWasCheckout);
+            return Result.Failure(OrderErrors.OrderAlreadyCheckedOut);
         }
 
         Status = OrderStatus.CheckedOut;

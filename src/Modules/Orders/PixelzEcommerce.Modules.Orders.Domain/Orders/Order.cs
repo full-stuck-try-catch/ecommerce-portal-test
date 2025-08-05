@@ -1,4 +1,5 @@
-﻿using PixelzEcommerce.Shared.Domain;
+﻿using PixelzEcommerce.Modules.Orders.Domain.Events;
+using PixelzEcommerce.Shared.Domain;
 
 namespace PixelzEcommerce.Modules.Orders.Domain.Orders;
 
@@ -34,6 +35,7 @@ public sealed class Order : Entity
         }
 
         Status = OrderStatus.CheckedOut;
+        Raise(new OrderCheckoutedDomainEvent(Id));
         return Result.Success();
     }
 }

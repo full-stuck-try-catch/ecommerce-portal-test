@@ -1,6 +1,40 @@
+version: '3.9'
+
 services:
   pixelzecommerce.api:
     image: ${DOCKER_REGISTRY-}pixelzecommerceapi
+    container_name: PixelzEcommerce.Api
     build:
       context: .
       dockerfile: src/API/PixelzEcommerce.Api/Dockerfile
+    ports:
+      - 5000:8080
+      - 5001:8081
+
+  pixelzecommerce.database:
+    image: postgres:latest
+    container_name: PixelzEcommerce.Database
+    environment:
+      - POSTGRES_DB=pixelzecommerce
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  pixelzecommerce.seq:
+    image: datalust/seq:latest
+    container_name: PixelzEcommerce.Seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 5341:5341
+      - 8081:80
+
+  pixelzecommerce.redis:
+    image: redis:latest
+    container_name: PixelzEcommerce.Redis
+    restart: always
+    ports:
+      - 6379:6379

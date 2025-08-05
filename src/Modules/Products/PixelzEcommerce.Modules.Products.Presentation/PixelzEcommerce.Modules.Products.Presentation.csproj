@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\PixelzEcommerce.Shared.Infrastructure\PixelzEcommerce.Shared.Infrastructure.csproj" />
     <ProjectReference Include="..\..\..\Shared\PixelzEcommerce.Shared.Presentation\PixelzEcommerce.Shared.Presentation.csproj" />
+    <ProjectReference Include="..\..\Orders\PixelzEcommerce.Modules.Orders.IntegrationEvents\PixelzEcommerce.Modules.Orders.IntegrationEvents.csproj" />
     <ProjectReference Include="..\PixelzEcommerce.Modules.Products.Application\PixelzEcommerce.Modules.Products.Application.csproj" />
   </ItemGroup>
 

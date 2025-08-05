@@ -16,3 +16,5 @@ logs
 # OS specific
 .DS_Store
 /.containers/database
+/.containers/db
+/.containers/db

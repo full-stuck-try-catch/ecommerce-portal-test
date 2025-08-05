@@ -21,7 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
 
 Assembly[] moduleApplicationAssemblies = [
-    PixelzEcommerce.Modules.Products.Application.AssemblyReference.Assembly,
+    PixelzEcommerce.Modules.Orders.Application.AssemblyReference.Assembly,
     PixelzEcommerce.Modules.Products.Application.AssemblyReference.Assembly];
 
 builder.Services.AddApplication(moduleApplicationAssemblies);

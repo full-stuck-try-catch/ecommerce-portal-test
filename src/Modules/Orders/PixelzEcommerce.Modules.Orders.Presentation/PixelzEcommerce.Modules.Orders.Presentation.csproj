@@ -7,18 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Orders\SearchOrder.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\PixelzEcommerce.Shared.Presentation\PixelzEcommerce.Shared.Presentation.csproj" />
     <ProjectReference Include="..\..\Products\PixelzEcommerce.Modules.Products.IntegrationEvents\PixelzEcommerce.Modules.Products.IntegrationEvents.csproj" />
     <ProjectReference Include="..\PixelzEcommerce.Modules.Orders.Application\PixelzEcommerce.Modules.Orders.Application.csproj" />
     <ProjectReference Include="..\PixelzEcommerce.Modules.Orders.IntegrationEvents\PixelzEcommerce.Modules.Orders.IntegrationEvents.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Orders\" />
   </ItemGroup>
 
 </Project>

@@ -27,15 +27,15 @@ public sealed class Order : Entity
     public decimal TotalAmount { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
-    public Result Checkout()
+    public Result StartedCheckout()
     {
         if (Status != OrderStatus.Created)
         {
             return Result.Failure(OrderErrors.OrderAlreadyCheckedOut);
         }
 
-        Status = OrderStatus.CheckedOut;
-        Raise(new OrderCheckoutedDomainEvent(Id));
+        Status = OrderStatus.PendingPayment;
+        Raise(new OrderPaymentProcessingDomainEvent(Id));
         return Result.Success();
     }
 }

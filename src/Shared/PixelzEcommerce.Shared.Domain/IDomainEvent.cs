@@ -2,6 +2,9 @@
 
 namespace PixelzEcommerce.Shared.Domain;
 
-public interface IDomainEvent : INotification
+public interface IDomainEvent
 {
+    Guid Id { get; }
+
+    DateTime OccurredOnUtc { get; }
 }

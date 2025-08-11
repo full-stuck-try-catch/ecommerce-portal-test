@@ -4,7 +4,10 @@ public enum OrderStatus
 {
     Unknown = 0,
     Created = 1,
-    CheckedOut = 2,
-    Paid = 3,
-    Failed = 4
+    PendingPayment = 2,
+    Failed = 3,
+    Confirmed = 4,
+    Completed = 5,
+    Canceled = 6,
+    Refunded = 7
 }

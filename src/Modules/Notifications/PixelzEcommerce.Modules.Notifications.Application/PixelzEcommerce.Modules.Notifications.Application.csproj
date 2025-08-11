@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\PixelzEcommerce.Shared.Application\PixelzEcommerce.Shared.Application.csproj" />
+    <ProjectReference Include="..\PixelzEcommerce.Modules.Notifications.Domain\PixelzEcommerce.Modules.Notifications.Domain.csproj" />
+    <ProjectReference Include="..\PixelzEcommerce.Modules.Notifications.IntegrationEvents\PixelzEcommerce.Modules.Notifications.IntegrationEvents.csproj" />
+  </ItemGroup>
+</Project>

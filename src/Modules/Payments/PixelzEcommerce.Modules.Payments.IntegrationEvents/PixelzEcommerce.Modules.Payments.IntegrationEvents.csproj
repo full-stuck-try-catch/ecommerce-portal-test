@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <Compile Remove="PaymentProcessingDomainEvent.cs" />
+    <Compile Remove="PaymentSucceededIntegrationEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\PixelzEcommerce.Shared.Application\PixelzEcommerce.Shared.Application.csproj" />
+  </ItemGroup>
+</Project>

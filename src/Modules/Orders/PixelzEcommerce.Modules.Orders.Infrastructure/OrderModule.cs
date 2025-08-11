@@ -1,14 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using PixelzEcommerce.Modules.Orders.Application.Abstractions.Data;
-using PixelzEcommerce.Modules.Orders.Infrastructure.Database;
+﻿using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
-using PixelzEcommerce.Modules.Products.Presentation.Products;
-using PixelzEcommerce.Shared.Presentation.Endpoints;
-using MassTransit;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using PixelzEcommerce.Modules.Orders.Application.Abstractions.Data;
+using PixelzEcommerce.Modules.Orders.Application.Orders.CheckoutOrder;
 using PixelzEcommerce.Modules.Orders.Domain.Orders;
+using PixelzEcommerce.Modules.Orders.Infrastructure.Database;
+using PixelzEcommerce.Modules.Orders.Infrastructure.DbInterceptors;
 using PixelzEcommerce.Modules.Orders.Infrastructure.Repositories;
+using PixelzEcommerce.Modules.Products.Presentation.Products;
+using PixelzEcommerce.Shared.Infrastructure.Outbox;
+using PixelzEcommerce.Shared.Presentation.Endpoints;
 
 namespace PixelzEcommerce.Modules.Orders.Infrastructure;
 public static class OrderModule
@@ -37,7 +41,8 @@ public static class OrderModule
                     configuration.GetConnectionString("Database"),
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Order))
-                .UseSnakeCaseNamingConvention());
+                .UseSnakeCaseNamingConvention()
+                .AddInterceptors(sp.GetRequiredService<InsertOutboxMessagesInterceptor>()));
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<OrderDbContext>());
         services.AddScoped<IOrderRepository, OrderRepository>();

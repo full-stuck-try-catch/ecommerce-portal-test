@@ -1,18 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="MassTransit.Abstractions" Version="8.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\PixelzEcommerce.Shared.Domain\PixelzEcommerce.Shared.Domain.csproj" />
   </ItemGroup>
-
 </Project>

@@ -25,7 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Notifications\PixelzEcommerce.Modules.Notifications.Infrastructure\PixelzEcommerce.Modules.Notifications.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Orders\PixelzEcommerce.Modules.Orders.Infrastructure\PixelzEcommerce.Modules.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Modules\Payments\PixelzEcommerce.Modules.Payments.Infrastructure\PixelzEcommerce.Modules.Payments.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Products\PixelzEcommerce.Modules.Products.Infrastructure\PixelzEcommerce.Modules.Products.Infrastructure.csproj" />
   </ItemGroup>
 

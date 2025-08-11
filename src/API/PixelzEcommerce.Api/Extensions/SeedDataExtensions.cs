@@ -24,7 +24,7 @@ internal static class SeedDataExtensions
             Faker<Order> orderFaker = new Faker<Order>()
                .CustomInstantiator(f => Order.Create(
                    name: f.Commerce.ProductName(),
-                   status: f.PickRandom<OrderStatus>(),
+                   status: OrderStatus.Created,
                    totalAmount: f.Random.Number(1,999),
                    createdAt: f.Date.PastOffset(3).DateTime
                ));

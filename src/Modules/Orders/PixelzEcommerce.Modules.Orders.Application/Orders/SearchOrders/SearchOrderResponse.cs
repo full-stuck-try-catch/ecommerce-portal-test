@@ -1,7 +1,9 @@
-﻿namespace PixelzEcommerce.Modules.Orders.Application.Orders.SearchOrders;
+﻿using System.Collections.Generic;
+
+namespace PixelzEcommerce.Modules.Orders.Application.Orders.SearchOrders;
 
 
-public sealed record SearchOrderResponse(
+public record SearchOrderResponse(
     int Page,
     int PageSize,
     int TotalCount,

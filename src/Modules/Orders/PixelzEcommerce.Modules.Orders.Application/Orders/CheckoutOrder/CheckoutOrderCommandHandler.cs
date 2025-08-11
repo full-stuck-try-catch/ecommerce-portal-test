@@ -1,16 +1,11 @@
 using PixelzEcommerce.Modules.Orders.Application.Abstractions.Data;
 using PixelzEcommerce.Modules.Orders.Domain.Orders;
-using PixelzEcommerce.Modules.Orders.IntegrationEvents;
-using PixelzEcommerce.Shared.Application.EventBus;
 using PixelzEcommerce.Shared.Application.Messaging;
-using PixelzEcommerce.Shared.Application.TimeUtc;
 using PixelzEcommerce.Shared.Domain;
 
 namespace PixelzEcommerce.Modules.Orders.Application.Orders.CheckoutOrder;
 
 internal sealed class CheckoutOrderCommandHandler(
-    IEventBus eventBus,
-    IDateTimeProvider dateTimeProvider,
     IOrderRepository orderRepository,
     IUnitOfWork unitOfWork) : ICommandHandler<CheckoutOrderCommand>
 {
@@ -23,16 +18,14 @@ internal sealed class CheckoutOrderCommandHandler(
             return Result.Failure(OrderErrors.OrderNotFound);
         }
 
-        Result checkoutResult = order.Checkout();
+        Result processPaymentResult = order.StartedCheckout();
 
-        if (checkoutResult.IsFailure)
+        if (processPaymentResult.IsFailure)
         {
-            return checkoutResult;
+            return processPaymentResult;
         }
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
-
-        await eventBus.PublishAsync(new ProductOrderedIntegrationEvent(order.Id, dateTimeProvider.UtcNow), cancellationToken);
 
         return Result.Success();
     }

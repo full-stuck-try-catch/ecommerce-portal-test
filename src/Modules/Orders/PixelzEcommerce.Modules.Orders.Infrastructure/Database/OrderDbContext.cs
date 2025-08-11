@@ -2,6 +2,7 @@
 using PixelzEcommerce.Modules.Orders.Application.Abstractions.Data;
 using PixelzEcommerce.Modules.Orders.Domain.Orders;
 using PixelzEcommerce.Modules.Orders.Infrastructure.Configurations;
+using PixelzEcommerce.Shared.Infrastructure.Outbox;
 
 namespace PixelzEcommerce.Modules.Orders.Infrastructure.Database;
 
@@ -14,6 +15,8 @@ public sealed class OrderDbContext(DbContextOptions<OrderDbContext> options)
     {
         modelBuilder.HasDefaultSchema(Schemas.Order);
 
+        modelBuilder.ApplyConfiguration(new OutboxMessageConfiguration());
+        modelBuilder.ApplyConfiguration(new OutboxMessageConsumerConfiguration());
         modelBuilder.ApplyConfiguration(new OrderConfiguration());
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace PixelzEcommerce.Shared.Domain;
+﻿using System;
+
+namespace PixelzEcommerce.Shared.Domain;
 
 public abstract class Entity
 {
@@ -15,10 +17,7 @@ public abstract class Entity
 
     public Guid Id { get; init; }
 
-    public IReadOnlyList<IDomainEvent> GetDomainEvents()
-    {
-        return _domainEvents.ToList();
-    }
+    public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.ToList();
 
     public void ClearDomainEvents()
     {

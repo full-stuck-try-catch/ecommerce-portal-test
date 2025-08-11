@@ -7,6 +7,7 @@ using PixelzEcommerce.Shared.Application.Data;
 using PixelzEcommerce.Shared.Application.EventBus;
 using PixelzEcommerce.Shared.Application.TimeUtc;
 using PixelzEcommerce.Shared.Infrastructure.Data;
+using PixelzEcommerce.Shared.Infrastructure.Outbox;
 using PixelzEcommerce.Shared.Infrastructure.TimeUtc;
 using StackExchange.Redis;
 
@@ -24,6 +25,8 @@ public static class InfrastructureConfiguration
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.TryAddSingleton<IEventBus, EventBus.EventBus>();
+
+        services.TryAddSingleton<InsertOutboxMessagesInterceptor>();
 
         NpgsqlDataSource npgsqlDataSource = new NpgsqlDataSourceBuilder(databaseConnectionString).Build();
         services.TryAddSingleton(npgsqlDataSource);
